@@ -29,9 +29,11 @@ class PostgreSQLCustomerRepository:
             raise CustomerNotFound()
 
     def update_customer(self, surname, customer_id):
-
-        self.session \
-            .query(Customer) \
-            .filter(Customer.customer_id == customer_id) \
-            .update({"surname": surname}) \
-            .commit()
+        try:
+            self.session \
+                .query(Customer) \
+                .filter(Customer.customer_id == customer_id) \
+                .update({"surname": surname}) \
+                .commit()
+        except NoResultFound:
+            raise CustomerNotFound()
