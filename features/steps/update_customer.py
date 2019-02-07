@@ -1,6 +1,4 @@
-from behave import when, then, given
-
-from customer_service.model.customer import Customer
+from behave import when, then
 
 
 @when('changes surname to "{surname}" with ID "{customer_id:d}"')
