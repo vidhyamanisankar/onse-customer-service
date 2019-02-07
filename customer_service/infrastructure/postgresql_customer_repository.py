@@ -33,7 +33,7 @@ class PostgreSQLCustomerRepository:
             self.session \
                 .query(Customer) \
                 .filter(Customer.customer_id == customer_id) \
-                .update({"surname": surname}) \
-                .commit()
+                .update({"surname": surname})
+            self.session.commit()
         except NoResultFound:
             raise CustomerNotFound()
