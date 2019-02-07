@@ -34,7 +34,8 @@ def test_create_customer(customer_repository):
 
 
 def test_update_customer(customer_repository):
-    customer = Customer(customer_id=12345, first_name='Nicole', surname='Forsgren')
+    customer = Customer(customer_id=12345, first_name='Nicole',
+                        surname='Forsgren')
     customer_repository.store(customer)
 
     commands.update_customer(surname='Bloggs',
